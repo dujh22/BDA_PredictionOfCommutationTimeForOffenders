@@ -41,7 +41,7 @@ def preprocess():
                 text = text[cut_pos + 1 :]
             text = re.sub(u"\\（.*?\\）|\\{.*?}|\\［.*?］", '', text)   # 去除括号内的内容
             text = re.sub("[：+——?【】《》“”！，。？、~@#￥%……&*（）]+", "", text)   # 去除标点符号等字符
-            if len(text) > SEQ_LEN: # 最大长度为512
+            if len(text) > SEQ_LEN: # 最大长度为512，截取后512个
                 text = text[-SEQ_LEN: ]
             if count % 10 == 0 and count < 100:
                 print(text)
